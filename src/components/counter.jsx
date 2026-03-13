@@ -1,52 +1,42 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Counter.css";
 
-function Counter(){
+function Counter() {
+  const [count, setCount] = useState(0);
 
-const [count,setCount]=useState(0);
+  const increment = () => {
+    setCount(count + 1);
+  };
 
-const increment=()=>{
-setCount(count+1);
-}
+  const decrement = () => {
+    setCount(count - 1);
+  };
 
-const decrement=()=>{
-setCount(count-1);
-}
+  const reset = () => {
+    setCount(0);
+  };
 
-const reset=()=>{
-setCount(0);
-}
+  return (
+    <div className="container">
 
-return(
+      <h1 className="title">✨ Smart Counter App</h1>
 
-<div className="counter-container">
+      <p className="student">
+        <strong>Name:</strong> Manvi | <strong>UID:</strong> 23BAI70279
+      </p>
 
-<h2 className="heading">
-Counter App Made by Manvi | UID: 23BAI70279
-</h2>
+      <div className="counter-box">
+        <h2 className="count">{count}</h2>
 
-<div className="counter-box">
+        <div className="buttons">
+          <button className="btn add" onClick={increment}>➕ Increase</button>
+          <button className="btn minus" onClick={decrement}>➖ Decrease</button>
+          <button className="btn reset" onClick={reset}>🔄 Reset</button>
+        </div>
+      </div>
 
-<h1 className="title">Counter App</h1>
-
-<h2 className="counter-value">{count}</h2>
-
-<div className="btn-container">
-
-<button className="increment" onClick={increment}>Increment</button>
-
-<button className="decrement" onClick={decrement}>Decrement</button>
-
-<button className="reset" onClick={reset}>Reset</button>
-
-</div>
-
-</div>
-
-</div>
-
-)
-
+    </div>
+  );
 }
 
 export default Counter;
